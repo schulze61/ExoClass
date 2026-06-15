@@ -15,3 +15,5 @@ Some notes on using this repo for students since I'm guessing we will update it 
 
 Let's collaborate! Add some words on how folks can collaborate via gitHub if they have modules they think would be nice to add or they have ideas for additions to the existing notebooks. Something something I'm biased towards small planet interiors. There are definitely people who can discuss some of these topics way better.
    
+## Aknowledgements:
+Wendy Panero and Ji Wang
