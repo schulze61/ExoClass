@@ -18,4 +18,5 @@ The notebook currently covers the following topics:
 
 ### Acknowledgements
 This notebook was written by Joseph Schulze[^1] and Natalie Hinkel[^1]
+
 [^1]:Louisiana State University
