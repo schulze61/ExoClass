@@ -17,4 +17,5 @@ The notebook currently covers the following topics:
 10.   Figures with multiple panels
 
 ### Acknowledgements
-This notebook was written by Joseph Schulze and Natalie Hinkel\footnote{Louisiana State University}
+This notebook was written by Joseph Schulze[^1] and Natalie Hinkel[^1]
+[^1]:Louisiana State University
