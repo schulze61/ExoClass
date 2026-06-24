@@ -18,5 +18,5 @@ Let's collaborate! Add some words on how folks can collaborate via gitHub if the
 ## Aknowledgements:
 The basic structure of this course and a number of materials were adapted from the Ohio State University **EARTHSC/ASTRON 5205**: Planetary Science course developed by Wendy Panero[^1] and Ji Wang[^2].
 
-[^1]: Division of Earth Sciences, National Science Foundation
+[^1]: Geosciences Directorate, National Science Foundation
 [^2]: Department of Astronomy, The Ohio State University
