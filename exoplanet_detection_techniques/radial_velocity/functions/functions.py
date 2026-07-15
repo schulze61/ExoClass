@@ -105,7 +105,7 @@ def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0,
             dx = (xmax/6)*np.sin(w+np.pi)
             dy = (xmax/6)*np.cos(w+np.pi)
             ax.arrow(0, 0, dx = dx, dy = dy, 
-                     width = 0.001, head_width = 0.15, zorder = 0, facecolor = 'k')
+                     width = 0.001, head_width = 0.01, zorder = 0, facecolor = 'k')
             ax.plot([-1000, 1000], [-1000*dy/dx, 1000*dy/dx], 'k--')
         ax2.set_xlim(-xmax, xmax)
         ax2.set_ylim(-xmax, xmax)
@@ -118,7 +118,7 @@ def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0,
             dx = (ymax/6)*np.sin(w+np.pi)
             dy = (ymax/6)*np.cos(w+np.pi)
             ax.arrow(0, 0, dx = dx, dy = dy, 
-                     width = 0.001, head_width = 0.15, zorder=0, facecolor = 'k')
+                     width = 0.001, head_width = 0.01, zorder=0, facecolor = 'k')
             ax.plot([-1000, 1000], [-1000*dy/dx, 1000*dy/dx], 'k--')
         ax2.set_xlim(-ymax, ymax)
         ax2.set_ylim(-ymax, ymax)
@@ -206,7 +206,7 @@ def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0,
         l4.set_data([x[i]*np.cos(inc - np.pi/2.0)], [-x[i]*np.sin(inc - np.pi/2.0)])
         ax4.clear()
         ax4.plot(spect['lambda_rest'], spect['flux'], 'k-', alpha = 0.5)
-        ax4.plot(spect['lambda_rest']*np.sqrt((c-vel[i])/(c+vel[i])), spect['flux'], 'c-')
+        ax4.plot(spect['lambda_rest']*np.sqrt((c+vel[i])/(c-vel[i])), spect['flux'], 'c-')
         ax4.grid(color='lightgray',linestyle='--', which = 'both', axis = 'x');
         ax4.set_xlim(4850, 4880)
         ax4.set_ylim(1.25, 2.0)
