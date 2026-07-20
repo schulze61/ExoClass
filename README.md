@@ -7,9 +7,6 @@ Modules that *should* work so far:
 - Projects:
   - Measuring mass, radius, and density
  
-Project 1 walkthrough should be good to go soon -- just trying to add two more planets for larger numbers of groups.
-
-
 This repo is a work in progress. Target audience is upper level undergradutes and graduate students interested in (exo)planetary science. 
 
 # Suggested course outline:
