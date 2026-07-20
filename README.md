@@ -4,6 +4,8 @@ Modules that *should* work so far:
 - Exoplanet detection methods:
   - Transit
   - RV
+- Projects:
+  - Measuring mass, radius, and density
  
 Project 1 walkthrough should be good to go soon -- just trying to add two more planets for larger numbers of groups.
 
