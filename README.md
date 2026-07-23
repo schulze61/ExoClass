@@ -23,6 +23,16 @@ This repo is a work in progress. Target audience is upper level undergradutes an
 Some notes on using this repo for students since I'm guessing we will update it as we go throughout the semester. 
 
 Let's collaborate! Add some words on how folks can collaborate via gitHub if they have modules they think would be nice to add or they have ideas for additions to the existing notebooks. Something something I'm biased towards small planet interiors. There are definitely people who can discuss some of these topics way better.
+
+Ideas for some future modules:
+- Basic uncertainty analysis / techniques
+- using the NASA exoplanet archive
+- microlensing
+- Break exo demographics into submodules:
+-   systems-level architecture, e.g., peas in a pod
+-   planets around M-dwarfs vs FGK-type stars?
+-   different types of planets in M-P / R-P, rho-M, etc. space.
+- MCMC sampling
    
 ## Aknowledgements:
 The basic structure of this course and a number of materials were adapted from the Ohio State University **EARTHSC/ASTRON 5205**: Planetary Science course developed by Wendy Panero[^1] and Ji Wang[^2].
