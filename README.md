@@ -4,6 +4,7 @@ Modules that *should* work so far:
 - Exoplanet detection methods:
   - Transit
   - RV
+  - direct imaging and astrometry
 - Projects:
   - Measuring mass, radius, and density
  
