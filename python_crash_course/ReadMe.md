@@ -11,7 +11,7 @@ The notebook currently covers the following topics:
 4.   Defining variables
 5.   Handling arrays
 6.   Plotting data
-7.   How to make a GOOD plot!
+7.   How to make a good plot
 8.   User-defined functions
 9.   SciPy basics
 10.   Figures with multiple panels
