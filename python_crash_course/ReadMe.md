@@ -16,6 +16,3 @@ The notebook currently covers the following topics:
 9.   SciPy basics
 10.   Figures with multiple panels
 
-### Acknowledgements
-Version 1 of this notebook was written by Joseph Schulze[^1]
-[^1]:Louisiana State University
