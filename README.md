@@ -10,6 +10,13 @@ Modules that *should* work so far:
  
 This repo is a work in progress. Target audience is upper level undergradutes and graduate students interested in (exo)planetary science. 
 
+python 3.13.5
+numpy 2.1.3
+scipy 1.15.3
+
+
+
+
 # Suggested course outline:
 1. Python crash course
 2. Tour of the solar system
