@@ -49,8 +49,8 @@ def build_rv_curve(Mp = 1.0, a = 1.0, i = np.pi/2.0, e = 0.0, V0 = 0.0, w = 0.0,
     return t/P, V, E, halpha_obs, K
 
 
-def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0, numpts = 100, arrow = False, T=0,
-                     directory = './animations'):
+def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0, numpts = 100, arrow = False, T=0.5,
+                     directory = './animations/'):
     phase, vel, E, ha_obs, K = build_rv_curve(Mp = Mp, a = a, i = inc, e = e, w = w, numpts = numpts, T=T)
     vel = vel/1000
     c = 299792
@@ -104,8 +104,10 @@ def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0,
         if arrow:
             dx = (xmax/6)*np.sin(w+np.pi)
             dy = (xmax/6)*np.cos(w+np.pi)
-            ax.arrow(0, 0, dx = dx, dy = dy, 
-                     width = 0.001, head_width = 0.01, zorder = 0, facecolor = 'k')
+            #ax.arrow(0, 0, dx = dx, dy = dy, 
+            #         width = 0.001*xmax, head_width = 0.01*xmax, zorder = 0, facecolor = 'k')
+            ax.annotate("", xytext=(0, 0), xy=(dx, dy), size=25, color = 'k',
+                        arrowprops=dict(arrowstyle="simple"))
             ax.plot([-1000, 1000], [-1000*dy/dx, 1000*dy/dx], 'k--')
         ax2.set_xlim(-xmax, xmax)
         ax2.set_ylim(-xmax, xmax)
