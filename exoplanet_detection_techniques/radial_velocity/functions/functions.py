@@ -49,8 +49,11 @@ def build_rv_curve(Mp = 1.0, a = 1.0, i = np.pi/2.0, e = 0.0, V0 = 0.0, w = 0.0,
     return t/P, V, E, halpha_obs, K
 
 
-def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0, numpts = 100, arrow = False, T=0.5,
-                     directory = './animations/'):
+def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0, numpts = 100,
+                     arrow = False, T=0.5,
+                     directory = './animations/',
+                     static = False,
+                     orb_phase = 0.5):
     phase, vel, E, ha_obs, K = build_rv_curve(Mp = Mp, a = a, i = inc, e = e, w = w, numpts = numpts, T=T)
     vel = vel/1000
     c = 299792
@@ -227,16 +230,44 @@ def animate_rv_curve(Mp = 333030/2.0, a = 0.05, e = 0.8, inc = np.pi/2.0, w = 0,
         plt.pause(pause[i])
         
 
+    if static:
+        i = np.argmin(abs(orb_phase-phase))
+        l.set_data([x[i]*np.cos(inc - np.pi/2.0)], [y[i]])
+        lstar.set_data([xstar[i]*np.cos(inc - np.pi/2.0)], [ystar[i]])
+        l2.set_data([phase[i]], [vel[i]])
+        l3.set_data([xstar[i]*np.cos(inc - np.pi/2.0)], [-xstar[i]*np.sin(inc - np.pi/2.0)])
+        l4.set_data([x[i]*np.cos(inc - np.pi/2.0)], [-x[i]*np.sin(inc - np.pi/2.0)])
+        ax4.clear()
+        ax4.plot(spect['lambda_rest'], spect['flux'], 'k-', alpha = 0.5)
+        ax4.plot(spect['lambda_rest']*np.sqrt((c+vel[i])/(c-vel[i])), spect['flux'], 'c-')
+        ax4.grid(color='lightgray',linestyle='--', which = 'both', axis = 'x');
+        ax4.set_xlim(4850, 4880)
+        ax4.set_ylim(1.25, 2.0)
+
+        ax4.set_xlabel(r'Observed Wavelength [$\AA$]', fontsize = 24)
+        ax4.set_ylabel(r'Flux', fontsize = 24)
+        ax4.xaxis.set_major_locator(MultipleLocator(5))
+        ax4.xaxis.set_minor_locator(MultipleLocator(1))
+        ax4.tick_params(which = 'major', direction = 'in', top = True, right = True, length = 10, width = 2, labelsize = 16)
+        ax4.tick_params(which = 'minor', direction = 'in', top = True, right = True, length = 7.5, width = 1)
+        ax4.patch.set_edgecolor('black')  
+        ax4.patch.set_linewidth(2)
         
+        ax4.set_yticks([])
+        ax4.get_xaxis().get_major_formatter().set_useOffset(False)
+        gifname = 'Mp=' + str(round(Mp, 2)) + 'Me' + '_a=' + str(round(a, 2)) + 'AU_e=' + str(round(e, 2)) + '_i=' + str(round(inc, 2)) + 'rad' + '_w=' + str(round(w,2))+'rad'
 
-    ani = matplotlib.animation.FuncAnimation(fig, animate, frames=len(x))
+        plt.savefig(directory + gifname + '.png', dpi = 300)
+        
+    else:
+        ani = matplotlib.animation.FuncAnimation(fig, animate, frames=len(x))
 
 
-    from IPython.display import HTML
-    HTML(ani.to_jshtml())
+        from IPython.display import HTML
+        HTML(ani.to_jshtml())
 
 
-    writer = matplotlib.animation.PillowWriter(fps=15,
-                                     metadata=dict(artist='Me'))
-    gifname = 'Mp=' + str(round(Mp, 2)) + 'Me' + '_a=' + str(round(a, 2)) + 'AU_e=' + str(round(e, 2)) + '_i=' + str(round(inc, 2)) + 'rad' + '_w=' + str(round(w,2))+'rad'
-    ani.save(directory + gifname + '.gif', writer=writer)
+        writer = matplotlib.animation.PillowWriter(fps=15,
+                                         metadata=dict(artist='Me'))
+        gifname = 'Mp=' + str(round(Mp, 2)) + 'Me' + '_a=' + str(round(a, 2)) + 'AU_e=' + str(round(e, 2)) + '_i=' + str(round(inc, 2)) + 'rad' + '_w=' + str(round(w,2))+'rad'
+        ani.save(directory + gifname + '.gif', writer=writer)
