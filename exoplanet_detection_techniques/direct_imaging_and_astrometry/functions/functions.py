@@ -42,7 +42,7 @@ def equilibrium_temperature(params):
     Tstar = params['star temperature']
     Rstar = params['star radius']*rsun
     a = params['planet semimajor axis']*au2m
-    A = params['planet albedo']
+    A = params['planet bond albedo']
     return Tstar*((1-A)**(1.0/4.0))*np.sqrt(Rstar/(2.0*a))
 
 
@@ -52,7 +52,7 @@ def thermal_contrast(params):
 def reflected_contrast(params):
     Rplanet = params['planet radius']*re
     a = params['planet semimajor axis']*au2m
-    return params['planet albedo']*(Rplanet**2)/(4.0*(a**2))
+    return params['planet geo albedo']*(Rplanet**2)/(4.0*(a**2))
 
 def min_planet_mass_astrometry(Mstar, a, d, theta_min = 400):
     return theta_min*arcsec_2_rad*Mstar*sol_2_earth_mass*((d*lyr_2_au)/a)
