@@ -17,7 +17,7 @@ from general_eos import *
 mfe = 55.845
 
 #------------------------------iron---------------------------------------#
-hfe = pd.read_csv('./data_files/hakim_data.csv')
+hfe = pd.read_csv('./data/hakim_data.csv')
 def hakim_dft(P):
     l = 7
     ind = np.argmin(abs(P-hfe['P']))
@@ -109,7 +109,7 @@ def Karki_pv(rho, P):
     return P - BM4(rho, rho0, K0, Kp0, Kpp0)
 
 
-dz16 = pd.read_csv('./data_files/SD_data.csv')
+dz16 = pd.read_csv('./data/SD_data.csv')
 dz16 = dz16.sort_values(by = 'rho')
 
 def Z16_mant(rho, P):
@@ -167,8 +167,8 @@ def magrathea_mant(rho, P):
         #print(keane(rho, rho0, K0, Kp0, ginf))
         return P  - (keane(rho, rho0, K0, Kp0, ginf))
 
-LM = pd.read_csv('./data_files/0.07CaMg_0.00FeMg_0.09AlMg_0.9SiMg_0.0NaMg_0.00Fe_LM_results.txt')
-UM = pd.read_csv('./data_files/0.07CaMg_0.00FeMg_0.09AlMg_0.9SiMg_0.0NaMg_0.00Fe_UM_results.txt')
+LM = pd.read_csv('./data/0.07CaMg_0.00FeMg_0.09AlMg_0.9SiMg_0.0NaMg_0.00Fe_LM_results.txt')
+UM = pd.read_csv('./data/0.07CaMg_0.00FeMg_0.09AlMg_0.9SiMg_0.0NaMg_0.00Fe_UM_results.txt')
 
 
 LM.columns = ['P[bar]', ' T[K]', ' rho[g/cm3]', ' log10(alpha)[1/K]',
@@ -235,10 +235,10 @@ def valencia_mant(rho, P):
 
 
 #---------------------------- wat/ice ----------------------------------------#
-seag_dft = np.loadtxt('./data_files/seag_DFT.txt')
+seag_dft = np.loadtxt('./data/seag_DFT.txt')
 interp_seag_dft = si.interp1d(seag_dft[:, 1]*1000.0, seag_dft[:, 2], fill_value = 'extrapolate')
 
-sf_wat = pd.read_csv('./data_files/sf_wat.csv')
+sf_wat = pd.read_csv('./data/sf_wat.csv')
 
 def seag_h2o(rho, P):
     if P <=44.3:

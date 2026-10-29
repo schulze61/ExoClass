@@ -26,7 +26,7 @@ def rhofind_h2o(P, EOS):
     rho = np.array([so.fsolve(EOS, 2000.0, args = (P))[0] for P in P])
     return rho
 
-elike = pd.read_csv('./data_files/elike.csv')
+elike = pd.read_csv('./data/elike.csv')
 elike = si.interp1d(elike['mass'], elike['density'], fill_value = 'extrapolate')
 
 G = 6.6743*(10**(-11))
